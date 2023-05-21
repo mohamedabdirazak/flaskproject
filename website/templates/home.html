@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+    %}
+    <h1 align="center">Messages</h1>
+    <ul class="list-group list-group-flush" id="messages">
+      {% for message in messages %}
+      <li class="list-group-item">
+        {{ message.data }} 
+        <button type="button" class="close" onClick="deleteMessage({{ message.id }})">
+        <span aria-hidden="true">&times;</span>
+        </button>
+         </li>
+      {% endfor %}
+    </ul>
+    <form method="POST">
+      <textarea name="message" id="message" class="form-control"></textarea>
+      <br />
+      <br>
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add Message</button>
+      </div>
+    </form>
+    {% endblock %}
